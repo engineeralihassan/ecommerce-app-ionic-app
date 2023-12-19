@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { LoadingController } from '@ionic/angular';
 import { CartService } from '../services/cart.service';
+// Import necessary modules
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-home',
@@ -16,10 +19,21 @@ export class HomePage {
   items:any[]=[];
   products:any[]=[1,2,3,4,5,6,7,8,9,10,10111,111111,2334556];
   activeChipIndex = 0;
-  constructor(private apiService: DataService, private loadingController: LoadingController,private cartService: CartService ) {}
+  constructor(private toastController: ToastController,private apiService: DataService, private loadingController: LoadingController,private cartService: CartService ) {}
 
   ngOnInit() {
     this.search();
+  }
+
+  async presentToast(message: string, duration: number = 300, position: 'top' | 'bottom' | 'middle' = 'bottom') {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: duration,
+      position: position,
+      color: 'dark', // You can customize the color (optional)
+    });
+  
+    toast.present();
   }
   setActiveChip(index: number,element:any) {
     this.activeChipIndex = index;
@@ -64,6 +78,7 @@ export class HomePage {
    console.log("Product is:",product);
    if(product){
     this.cartService.addToCart(product);
+    this.presentToast('Add to cart succesfully!', 1000, 'middle');
    }
   }
 

@@ -1,10 +1,9 @@
 
 
-<ion-content class="container main-row mt-5" style="border: 1px solid red;width: 100%;">
-  <ion-row class="mt-5" style="border: 1px solid red;width: 100%;">
-    <ion-col size="12" class="mt-5 d-flex justify-content-center align-items-center mmmmain">
 
-            <table class="table table-bordered">
+
+         
+            <table class="table table-bordered  table-man">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -29,13 +28,17 @@
                   <td>
                   <button (click)="removeFromCart(i)" type="button" class="btn btn-danger"><ion-icon name="trash"></ion-icon></button>
                   </td>
-                  <td>{{i===cartItems.length-1? totalBill:''}}</td>
+                  <td>{{i===cartItems.length-1? updateTotalBill():''}}</td>
                 </tr>
               </tbody>
             </table>
+            <div class="buttons-con">
+              <button   class="btn btn-dark"       routerLink="/home">Continue shoping</button>
+              <button  class="btn btn-dark"  routerLink="/checkout">checkout</button>
+            </div>
          
-    </ion-col>
-  </ion-row>
-</ion-content>
+
+
+
 
 

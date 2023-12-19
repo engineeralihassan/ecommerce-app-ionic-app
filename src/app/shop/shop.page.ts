@@ -20,12 +20,13 @@ export class ShopPage{
     this.updateTotalBill();
   }
 
-  updateTotalBill(): void {
+  updateTotalBill(){
     console.log("items in bill",this.cartItems);
     this.totalBill = this.cartItems.reduce((total, item) => {
       console.log("total bil 1 iteration:",total + (item.price * (+item.quantity)));
       return total + (item.price * (+item.quantity));
     }, 0);
+    return this.totalBill;
   }
 
   addToCart(product: any): void {
