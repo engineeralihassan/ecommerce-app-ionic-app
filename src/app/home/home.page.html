@@ -1,0 +1,85 @@
+
+
+
+
+
+<ion-content>
+  <div class="main-hero-section">
+   <div class="hero-content">
+    <h1>Get latest winter collections</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium voluptas corporis dicta reprehenderit nam ex similique quasi ipsam adipisci cumque.</p>
+    <button style="background-color:rgb(34, 33, 33); color:#ffff; padding: 10px 20px;" routerLink="/shop">Shop Now</button>
+   </div>
+
+
+  </div>
+  <ion-grid>
+    <ion-row class="ion-align-items-center section-header-row">
+      <ion-col>
+        <ion-title class="ion-text-center">
+          Our Super Categories
+        </ion-title>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="home-chips">
+      
+        <!-- Loop through the elementsArray and create ion-chips -->
+        <ion-chip *ngFor="let element of data?.super_categories; let i = index"
+                  [ngClass]="{'active': i === activeChipIndex}"
+                  (click)="setActiveChip(i,element)">
+          <ion-label>{{ element?.name }}</ion-label>
+        </ion-chip>
+     
+      
+    </ion-row>
+    <ion-row class="categories-section-row">
+      <div class="category-box" *ngFor="let element of data?.categories; let i = index">
+        <img [src]="element?.image ? element?.image:'../../assets/iconiv.jpg'" alt="">
+      
+        <ion-label>{{ element?.name ? element?.name:'Testing Name' }}</ion-label>
+      </div>
+    </ion-row>
+    <ion-row class="ion-align-items-center section-header-row">
+      <ion-col>
+        <ion-title class="ion-text-center">
+          Category Related Items
+        </ion-title>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row class="items-section-row">
+      <ng-container *ngFor="let product of items ; let i = index">
+      <ion-col  class="single-item"  *ngIf="i<12" >
+       <div class="upper" >
+        <img [src]="product?.image? product?.image:'../../assets/iconiv.jpg'" alt="product?.name">
+       </div>
+       <div class="discount">
+        -{{product?.discount_value}}%
+
+       </div>
+       <div class="lower">
+        <p><span>Price</span> <span>${{product?.price}}</span></p>
+        <p class="name"><span>{{product?.name}}</span></p>
+        <p><span>Tax</span> <span>${{product?.tax? product.tax:'0'}}</span></p>
+        <p (click)="addToCart(product)"><button><span>Add to card</span> <span><ion-icon name="cart"></ion-icon></span></button></p>
+
+       </div>
+      </ion-col>
+    </ng-container>
+    </ion-row>
+
+    <ion-row class="view-all-button" *ngIf="items && items.length > 12">
+    
+        <ion-button routerLink="/shop">
+          View All Products
+        </ion-button>
+ 
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+ 
+
+

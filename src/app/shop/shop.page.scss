@@ -1,0 +1,32 @@
+
+
+.container {
+    padding: 2rem 0rem;
+    margin-top:100px;
+    min-height: 900px !important;
+  }
+  
+  h4 {
+    margin: 2rem 0rem 1rem;
+  }
+  
+  .table-image {
+    td, th {
+      vertical-align: middle;
+    }
+  }
+@media(max-width:800){
+    .main-row{
+        overflow-x: scroll;
+    
+      }
+
+}
+.mmmmain{
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+  

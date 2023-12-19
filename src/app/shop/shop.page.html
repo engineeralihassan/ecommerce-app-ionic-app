@@ -1,0 +1,41 @@
+
+
+<ion-content class="container main-row mt-5" style="border: 1px solid red;width: 100%;">
+  <ion-row class="mt-5" style="border: 1px solid red;width: 100%;">
+    <ion-col size="12" class="mt-5 d-flex justify-content-center align-items-center mmmmain">
+
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="cole"> Sub-Total</th>
+                  
+                  <th>Delete</th>
+                  <th>Total Bill</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of cartItems; let i = index">
+                  <td scope="row">{{i+1}}</td>
+                  <td><img  style="width: 50px; height: 50px; border-radius: 50%;" [src]="item.image? item.image : '../../assets/iconiv.jpg'" alt=""></td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.price}}</td>
+                  <td>{{item.quantity}}</td>
+                  <td>{{item.price*(+item.quantity)}}</td>
+                  <td>
+                  <button (click)="removeFromCart(i)" type="button" class="btn btn-danger"><ion-icon name="trash"></ion-icon></button>
+                  </td>
+                  <td>{{i===cartItems.length-1? totalBill:''}}</td>
+                </tr>
+              </tbody>
+            </table>
+         
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+

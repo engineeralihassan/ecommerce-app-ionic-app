@@ -1,0 +1,58 @@
+<ion-header>  
+  <ion-toolbar  class="topbar">  
+    <!-- The ion-menu-button for the menu on the left -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <!-- The content on the right side -->
+    <ion-buttons slot="end">
+      <!-- Search bar input -->
+      <ion-searchbar placeholder="Search products" style="text-align: center;"></ion-searchbar>
+
+      <!-- Persons icon -->
+      <ion-button>
+        <ion-icon slot="icon-only" name="person"></ion-icon>
+      </ion-button>
+
+      <!-- Shopping bag icon with badge -->
+      <ion-button>
+        <ion-icon  name="cart"></ion-icon>
+        <ion-badge>{{cartLength}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+    
+    <!-- The title in the center (if needed) -->
+    <ion-title>  
+      Mikronexus 
+    </ion-title>  
+  </ion-toolbar>  
+</ion-header>
+
+
+
+
+
+<ion-app>
+   <ion-menu side="start" menuId="first" contentId="content">  
+    <ion-header>  
+      <ion-toolbar>  
+        <ion-title>Mikronexus</ion-title>  
+      </ion-toolbar>  
+    </ion-header>  
+    <ion-content>  
+      <ion-list *ngFor="let pages of navigate">  
+        <ion-menu-toggle auto-hide="true">  
+          <ion-item [routerLink]="pages.url" routerDirection="forward">  
+            <ion-icon [name]="pages.icon" slot="start"></ion-icon>  
+              {{pages.title}}   
+          </ion-item>  
+        </ion-menu-toggle>  
+      </ion-list>  
+    </ion-content>  
+  </ion-menu>  
+  <ion-router-outlet Id="content"></ion-router-outlet> 
+
+</ion-app>
+<app-footer></app-footer>
+
