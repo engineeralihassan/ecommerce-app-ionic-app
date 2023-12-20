@@ -51,9 +51,9 @@ export class AppComponent {
         icon  : 'home'  
       },  
       {  
-        title : 'Cart',  
+        title : 'Shop',  
         url   : '/shop',  
-        icon  : 'cart'  
+        icon  : 'basket'  
       },  
       {  
         title : 'checkout',  

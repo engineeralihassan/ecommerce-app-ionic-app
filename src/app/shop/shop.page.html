@@ -1,41 +1,76 @@
 
+<ion-content [fullscreen]="true" class="main-shop-container">
+  
 
+  <div class='K2-grid coll-3 icon-p-2 mt5'>
+    <h2> Explore our latest categories </h2>
+    <div class="home-chips">
+    <ion-chip *ngFor="let element of data?.super_categories; let i = index"
+    [ngClass]="{'active': i === activeChipIndex}"
+    (click)="setActiveChip(i,element)">
+<ion-label>{{ element?.name }}</ion-label>
+</ion-chip>
+</div>            
+    <ul>
+      <li *ngFor="let element of data?.categories; let i = index">
+        <div class="bg">
+          <img [src]="element?.image ? element?.image:'../../assets/foods.jpeg'" alt="">
+          <div class="overlay">
+            <p>{{element.name}}</p>
+            
+          </div>
+        </div>
+    </li>
+    
+  
+    </ul>
+    </div>
+  <div class = "main-wrapper">
+    <div class = "container">
+        <div class = "main-title">
+            <h1>Products List</h1>
+        </div>
 
-
-         
-            <table class="table table-bordered  table-man">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Image</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="cole"> Sub-Total</th>
-                  
-                  <th>Delete</th>
-                  <th>Total Bill</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let item of cartItems; let i = index">
-                  <td scope="row">{{i+1}}</td>
-                  <td><img  style="width: 50px; height: 50px; border-radius: 50%;" [src]="item.image? item.image : '../../assets/iconiv.jpg'" alt=""></td>
-                  <td>{{item.name}}</td>
-                  <td>{{item.price}}</td>
-                  <td>{{item.quantity}}</td>
-                  <td>{{item.price*(+item.quantity)}}</td>
-                  <td>
-                  <button (click)="removeFromCart(i)" type="button" class="btn btn-danger"><ion-icon name="trash"></ion-icon></button>
-                  </td>
-                  <td>{{i===cartItems.length-1? updateTotalBill():''}}</td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="buttons-con">
-              <button   class="btn btn-dark"       routerLink="/home">Continue shoping</button>
-              <button  class="btn btn-dark"  routerLink="/checkout">checkout</button>
+        <div class = "item-list">
+            <div class = "item" *ngFor="let product of items ; let i = index">
+                <div class = "item-img">
+                    <img [src] = "product?.image? product?.image:'../../assets/foods.jpeg'">
+                    <div class = "icon-list">
+                        <button type = "button">
+                            <ion-icon name="heart"></ion-icon>
+                        </button>
+                        <button type = "button">
+                          <ion-icon name="eye"></ion-icon>
+                        </button>
+                        <button (click)="addToCart(product)" type = "button">
+                          <ion-icon name="cart"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class = "item-detail">
+                    <a href = "#" class = "item-name">{{product.name}}</a>
+                    <div class = "item-price">
+                        <span class = "new-price">${{product.price}}</span>
+                        <span class = "old-price">$275.60</span>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore fugiat quod corporis delectus sequi laudantium molestias vero distinctio, qui numquam dolore, corrupti, enim consectetur cum?</p>
+                    <button type = "button" class = "add-btn">add to cart</button>
+                </div>
             </div>
+
+
+ 
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
          
 
 

@@ -1,13 +1,85 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>cart</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cart</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+<!-- YourPage.page.html -->
+
+<ion-content class="mt-5">
+
+  <ion-grid class="mt-5 my-grid" >
+    <ion-row>  <h1 class="text-cent mt-5">Cart Items</h1></ion-row>
+    <ion-row class="header-row" class="mt-5 bg-dark text-white" *ngIf="cartItems.length">
+      <ion-col>#</ion-col>
+      <ion-col>Image</ion-col>
+      <ion-col>Name</ion-col>
+      <ion-col>Price</ion-col>
+      <ion-col>Quantity</ion-col>
+      <ion-col>Subtotal</ion-col>
+      <ion-col>Delete</ion-col>
+
+    </ion-row>
+    <ng-container *ngIf="cartItems.length; else emptyMessage">
+    <ion-row *ngFor="let item of cartItems ; let i = index">
+      <ion-col>{{ item?.id }}</ion-col>
+      <ion-col>
+        <img [src]="item.image? item.image:'../../assets/iconiv.jpg'" alt="Product Image" />
+      </ion-col>
+      <ion-col>{{ item?.name }}</ion-col>
+      <ion-col>{{ item?.price }}</ion-col>
+      <ion-col>{{ item?.quantity }}</ion-col>
+      <ion-col>{{ item?.price*item.quantity}}</ion-col>
+      <ion-col><ion-icon name="trash" class="text-danger" (click)="removeFromCart(i)"></ion-icon></ion-col>
+    </ion-row>
+
+    <!-- Total Row -->
+    <ion-row class="total-row mb-5">
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col>Total:</ion-col>
+      <ion-col>{{ updateTotalBill() }}</ion-col>
+    </ion-row>
+  </ng-container>
+
+    <ion-row class="mt-4 mb-5">
+      <ion-buttons class="ion-buttonss" *ngIf="cartItems.length">
+        <ion-button fill="clear" routerLink="/home">Continue shoping</ion-button>
+        <ion-button fill="clear" routerLink="/checkout">Checkout</ion-button>
+      </ion-buttons>
+    </ion-row>
+   
+  </ion-grid>
+  <ng-template #emptyMessage>
+    <ion-card >
+      <ion-card-header>
+        <ion-card-title>Empty cart</ion-card-title>
+        <ion-card-subtitle>Add products in your cart.</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Your cart is empty please add products in cart by clicking shop now button.
+      </ion-card-content>
+    
+      <ion-button fill="clear" routerLink="/home">Shop Now</ion-button>
+      <ion-button fill="clear" routerLink="/home">Home</ion-button>
+    </ion-card>
+  </ng-template>
+
+
+
+
+ 
 </ion-content>
+
+
+
+
+
+
+
+         
+
+
+
+
+
+
