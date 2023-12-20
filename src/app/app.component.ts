@@ -62,7 +62,7 @@ export class AppComponent {
       }, 
       {  
         title : 'Contacts',  
-        url   : '/contact',  
+        url   : '/contact-us',  
         icon  : 'person'  
       },  
     ];  
