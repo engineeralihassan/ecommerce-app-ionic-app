@@ -7,8 +7,6 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium voluptas corporis dicta reprehenderit nam ex similique quasi ipsam adipisci cumque.</p>
     <button style="background-color:rgb(34, 33, 33); color:#ffff; padding: 10px 20px;" routerLink="/shop">Shop Now</button>
    </div>
-
-
   </div>
   <ion-grid>
     <ion-row class="ion-align-items-center section-header-row">
@@ -20,8 +18,6 @@
     </ion-row>
 
     <ion-row class="home-chips">
-      
-        <!-- Loop through the elementsArray and create ion-chips -->
         <ion-chip *ngFor="let element of data?.super_categories; let i = index"
                   [ngClass]="{'active': i === activeChipIndex}"
                   (click)="setActiveChip(i,element)">
@@ -37,42 +33,39 @@
         <ion-label>{{ element?.name ? element?.name:'Testing Name' }}</ion-label>
       </div>
     </ion-row>
-    <ion-row class="ion-align-items-center section-header-row">
-      <ion-col>
-        <ion-title class="ion-text-center">
-          Category Related Items
-        </ion-title>
-      </ion-col>
-    </ion-row>
+
     
     <ion-row class="items-section-row">
-      <ng-container *ngFor="let product of items ; let i = index">
-      <ion-col  class="single-item"  *ngIf="i<12" >
-       <div class="upper" >
-        <img [src]="product?.image? product?.image:'../../assets/iconiv.jpg'" alt="product?.name">
-       </div>
-       <div class="discount">
-        -{{product?.discount_value}}%
+      <ng-container>
+        <div class="container">
+          <h3 class="text-center" style="margin-top: 50px;">TREANDLY PRODUCTS</h3>
+          <div class="row products-trendy-container" style="margin-top: 50px;">
+            <ng-container *ngFor="let product of items ; let i = index"> 
+                          <div class="col-md-3 py-3 py-md-0 mt-3" *ngIf="i<=15">
 
-       </div>
-       <div class="lower">
-        <p><span>Price</span> <span>${{product?.price}}</span></p>
-        <p class="name"><span>{{product?.name}}</span></p>
-        <p><span>Tax</span> <span>${{product?.tax? product.tax:'0'}}</span></p>
-        <p (click)="addToCart(product)"><button><span>Add to card</span> <span><ion-icon name="cart"></ion-icon></span></button></p>
+                  <div class="card" id="c">
+                      <img style="width:100% !important; height: 250px !important;" [src]="product.image? product.image:'../../assets/reel.jpg'" alt="" class="card image-top">
+                      <div class="card-body">
+                          <h3 class="card-titel text-center">{{product.name}}</h3>
+                          <p class="card-text text-center">$ {{product.price}}</p>
+                          <div (click)="addToCart(product)" id="btn3"><button> <ion-icon class="mr-4" name="cart"></ion-icon> Add to cart</button></div>
+                      </div>
+                  </div>
+              </div>
+            </ng-container> 
 
-       </div>
-      </ion-col>
+          </div>
+  
+  
+  
+         
+      </div>
     </ng-container>
     </ion-row>
-
-    <ion-row class="view-all-button" *ngIf="items && items.length > 12">
-    
-        <ion-button routerLink="/cart">
-          View All Products
-        </ion-button>
- 
+    <ion-row class="mt-5">
+      <app-testimonial-carousel></app-testimonial-carousel>
     </ion-row>
+    <ion-row class="mb-5 mt-5"></ion-row>
   </ion-grid>
 </ion-content>
 

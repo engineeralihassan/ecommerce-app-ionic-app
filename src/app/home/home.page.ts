@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { LoadingController } from '@ionic/angular';
 import { CartService } from '../services/cart.service';
 // Import necessary modules
 import { ToastController } from '@ionic/angular';
 
-
+declare var $: any;
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -18,13 +18,13 @@ export class HomePage {
   data:any;
   items:any[]=[];
   products:any[]=[1,2,3,4,5,6,7,8,9,10,10111,111111,2334556];
-  activeChipIndex = 0;
-  constructor(private toastController: ToastController,private apiService: DataService, private loadingController: LoadingController,private cartService: CartService ) {}
+  activeChipIndex = 1;
+  constructor(private toastController: ToastController,private apiService: DataService,private renderer: Renderer2, private loadingController: LoadingController,private cartService: CartService ) {}
 
   ngOnInit() {
     this.search();
-  }
 
+  }
   async presentToast(message: string, duration: number = 300, position: 'top' | 'bottom' | 'middle' = 'bottom') {
     const toast = await this.toastController.create({
       message: message,

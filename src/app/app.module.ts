@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataViewModule } from 'primeng/dataview';
 
 
+
 @NgModule({
   declarations: [AppComponent,FooterComponent],
   imports: [BrowserModule, IonicModule.forRoot(),HttpClientModule, AppRoutingModule,DataViewModule,BrowserAnimationsModule ],

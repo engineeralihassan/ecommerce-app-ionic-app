@@ -4,13 +4,13 @@
 
 .main-hero-section{
 
-  background: url("../../assets/paper-bags-different-colors-blue-background-top-view_169016-43755.avif");
+  background: url("../../assets/background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 
   min-height: 500px;
-  color: #fff;
+  color: #0000;
   margin-top: 55px;
   display: flex;
   justify-content: flex-start;
@@ -25,7 +25,10 @@
 .hero-content h1{
   font-size: 30px;
   font-weight: bold;
-  color: #fff;
+  color: rgb(34, 33, 33);
+}
+.hero-content p{
+  color: rgb(34, 33, 33);
 }
 @media(max-width:700px){
   .hero-content h1{
@@ -59,11 +62,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
   gap: 10px;
 
 }
 .categories-section-row .category-box{
+  min-width: 20%;
   flex-basis: 25%;
   height: 100px;
   color: rgb(34, 33, 33);
@@ -152,12 +157,10 @@
 }
 @media (max-width:700px) {
   .items-section-row{
-    border: 1px solid red;
   }
   .single-item{
     flex-basis: 100% !important;
     min-width: 100% !important;
-    border: 1px solid red;
     width: 100% !important;
   }
 }
@@ -198,6 +201,98 @@ text-decoration: underline;
 }
 
 
+
+/* content */
+.content{
+  margin-top: 150px;
+  margin-left: 60px;
+}
+.content h1{
+  font-size: 50px;
+}
+#btn1 button{
+  width: 150px;
+  height: 32px;
+  background: transparent;
+  border: 1px solid black;
+  letter-spacing: 3px;
+  font-weight: bold;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+#btn1 button:hover{
+  background-color: green;
+}
+@media screen and (max-width:420px){
+  .content h1{
+      font-size: 30px;
+  }
+}
+/* content */
+
+/* main content */
+
+/* card1 */
+#btn2 button{
+  width: 100px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid black;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+#btn2 button:hover{
+  background-color: rgba(238,224,208);
+}
+/* card1 */
+
+/* card2 */
+#tpc{
+  box-shadow: 0 0 5px black;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+#tpc:hover{
+  transform: translateY(-10px);
+}
+/* card2 */
+
+/* card3 */
+#c p{
+  font-weight: bold;
+}
+#btn3{
+  text-align: center;
+}
+#btn3 button{
+  width: 150px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid black;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+#btn3 button:hover{
+  background-color: rgb(14, 13, 13);
+  color: #ffff;
+}
+@media screen and (max-width:895px){
+  #btn3 button{
+      width: 100px;
+  }
+}
+/* card3 */
+#btn4 button{
+  width: 150px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid black;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+#btn4 button:hover{
+  background-color: rgba(238,224,208);
+}
 
 
 

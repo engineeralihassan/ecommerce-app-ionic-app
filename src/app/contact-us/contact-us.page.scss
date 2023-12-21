@@ -46,7 +46,6 @@ svg {
 
 form {
 	min-width: 25rem;
-    border: 1px solid red;
 	
 	.title {
 		font-family: 'Pacifico', cursive;
@@ -119,7 +118,76 @@ form {
 }
 
 .btn.btn-primary:hover:enabled {
-  box-shadow: 0 0.5em 0.5em -0.4em #ff923cba;
+  box-shadow: 0 0.5em 0.5em -0.4em #716760ba;
   background-size: 100% 100%;
   transform: translateY(-0.15em);
+}
+@media(max-width:800px) {
+  .container{
+    flex-direction: column !important;
+    min-height: 1000px;
+    padding: 10px;
+    svg{
+      height: 15rem;
+      margin-bottom: 20px;
+      align-self: center;
+      margin-left: 20px;
+    }
+    form{
+      margin-top: 10px;
+      padding: 10px;
+
+    }
+    
+  }
+}
+
+ .successMesg h1 {
+  color: #88B04B;
+  font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+ .successMesg p {
+  color: #404F5E;
+  font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+  font-size:20px;
+  margin: 0;
+}
+.successMesg ion-icon {
+color: #9ABC66;
+font-size: 100px;
+line-height: 200px;
+margin-left:-15px;
+}
+.successMesg{
+background: white;
+padding: 60px;
+border-radius: 4px;
+box-shadow: 0 2px 3px #C8D0D8;
+display: inline-block;
+margin: 0 auto;
+}
+.successMesg .icon-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+.successMesg button{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.successMesg button .loaders{
+  width: 5px !important;
+  height: 5px !important;
+}
+.successMesg button p{
+  color: red;
+
 }

@@ -25,8 +25,10 @@
     "@stripe/stripe-js": "^2.2.2",
     "bootstrap": "^5.3.2",
     "ionicons": "^7.0.0",
+    "jquery": "^3.7.1",
     "primeng": "^17.1.0",
     "rxjs": "~7.8.0",
+    "swiper": "^11.0.5",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
   },

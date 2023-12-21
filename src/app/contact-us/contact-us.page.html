@@ -1,6 +1,7 @@
 
-<ion-content [fullscreen]="true">
-  <div class="container d-flex justify-content-center align-items-center">
+<ion-content [fullscreen]="true" class="mt-5 mb-5">
+    <ion-row class="mt-2"></ion-row>
+  <div class="container d-flex justify-content-center align-items-center mt-5">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 790 563" fill="none">
         <g id="Image">
             <g id="g14">
@@ -296,7 +297,9 @@
             </g>
         </g>
     </svg>
-    <form>
+
+    
+    <form  *ngIf="!isSubmitted; else successmessage " (ngSubmit)="submitForm(form)" #form="ngForm">
       <h1 class="title text-center mb-4">Talk to Us</h1>
         <div class="form-group position-relative">
           <label for="formName" class="d-block">
@@ -317,9 +320,23 @@
       
         <!-- Submit btn -->
         <div class="text-center">
-          <button type="submit" class="btn btn-primary" tabIndex="-1">Send message</button>
+          <button type="submit"  class="btn btn-primary" tabIndex="-1"><div *ngIf="isLoading" class="spinner-border loaders" role="status">
+            <span class="sr-only"></span>
+          </div> <p>Send message</p></button>
+
         </div>
     </form>
     
   </div>
+  <ng-template #successmessage>
+  <div class="successMesg">
+    <div class="icon-container" style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+      <ion-icon name="checkmark"></ion-icon>
+    </div>
+      <h1>Success</h1> 
+      <p>We received your message request;<br/> we'll be in touch shortly!</p>
+    </div>
+</ng-template>
+<ion-row class="mt-5 mb-5"></ion-row>
 </ion-content>
+

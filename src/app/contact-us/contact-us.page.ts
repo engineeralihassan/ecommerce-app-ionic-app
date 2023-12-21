@@ -5,11 +5,23 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './contact-us.page.html',
   styleUrls: ['./contact-us.page.scss'],
 })
-export class ContactUsPage implements OnInit {
+export class ContactUsPage{
+  isSubmitted = false;
+  isLoading = false;
 
-  constructor() { }
+  formData = {
+    formName: '',
+    formEmail: '',
+    formMessage: ''
+  };
 
-  ngOnInit() {
+  submitForm(form:any) {
+    console.log("the form is ::" ,form)
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false;
+      this.isSubmitted = true;
+    }, 2000);
   }
 
 }

@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular'; 
 import { CartService } from './services/cart.service';
 import { Subscription } from 'rxjs';
-CartService 
+import { register } from 'swiper/element/bundle';
 
+register();
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',

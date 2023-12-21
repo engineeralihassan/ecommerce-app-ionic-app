@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './checkout.page.html',
   styleUrls: ['./checkout.page.scss'],
 })
-export class CheckoutPage implements OnInit {
-
+export class CheckoutPage {
+  proceedingPaymentOnline:boolean=false;
   constructor() { }
 
   ngOnInit() {
