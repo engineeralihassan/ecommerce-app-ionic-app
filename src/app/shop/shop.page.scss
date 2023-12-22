@@ -105,12 +105,20 @@ img,
       padding:0;
       width: 100%;
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: space-between;
+      overflow: scroll;
+      gap: 7px;
+  }
+  .truncate {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .coll-3 ul li {
-      width: 15%;
+      min-width: 135px;
   }
   
   .K2-grid li {
@@ -121,11 +129,9 @@ img,
       background: #fff;
       border-radius: 5px;
       box-sizing: border-box;
-      box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 10px;
   }
   
   .K2-grid li a {
@@ -134,17 +140,8 @@ img,
       color: #333;
   }
   
-  // .K2-grid li img {
-  //     margin: 3px 0;
-  //     width: 50px;
-  //     height: 50px;
-  //     fill: #26ae61;
-  //     display: inline-block;
-  // }
-  
   .K2-grid li span {
       display: block;
-      padding: 0 3px;
   }
 
 /////////////////////////////////////////////////////////////
@@ -160,7 +157,7 @@ img{
 }
 .container{
   max-width: 1200px;
-  margin: 0 auto;
+  
   padding: 0 16px;
 }
 .main-title{
@@ -209,7 +206,7 @@ img{
   background-color: #fff;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 0 4px 0 rgba(15, 4, 4, 0.05);
+  box-shadow: 0 0 10px 1px rgba(0, 4, 4, 0.15);
   transition: all 0.2s ease-out;
 }
 .item:hover{
@@ -376,4 +373,10 @@ img{
   align-items: center;
   gap: 10px;
   
+}
+
+@media(max-width:600px){
+  .K2-grid  h2{
+    font-size: 30px;
+  }
 }

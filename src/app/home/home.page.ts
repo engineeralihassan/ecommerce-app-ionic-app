@@ -17,7 +17,6 @@ export class HomePage {
   isLoading!: boolean;
   data:any;
   items:any[]=[];
-  products:any[]=[1,2,3,4,5,6,7,8,9,10,10111,111111,2334556];
   activeChipIndex = 1;
   constructor(private toastController: ToastController,private apiService: DataService,private renderer: Renderer2, private loadingController: LoadingController,private cartService: CartService ) {}
 
@@ -30,7 +29,7 @@ export class HomePage {
       message: message,
       duration: duration,
       position: position,
-      color: 'dark', // You can customize the color (optional)
+      color: 'success', 
     });
   
     toast.present();

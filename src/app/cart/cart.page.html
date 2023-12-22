@@ -1,75 +1,4 @@
-<!-- 
 
-
-
-<ion-content class="mt-5">
-
-  <ion-grid class="mt-5 my-grid" >
-    <ion-row>  <h1 class="text-cent mt-5">Cart Items</h1></ion-row>
-    <ion-row class="header-row" class="mt-5 bg-dark text-white" *ngIf="cartItems.length">
-      <ion-col>#</ion-col>
-      <ion-col>Image</ion-col>
-      <ion-col>Name</ion-col>
-      <ion-col>Price</ion-col>
-      <ion-col>Quantity</ion-col>
-      <ion-col>Subtotal</ion-col>
-      <ion-col>Delete</ion-col>
-
-    </ion-row>
-    <ng-container *ngIf="cartItems.length; else emptyMessage">
-    <ion-row *ngFor="let item of cartItems ; let i = index">
-      <ion-col>{{ item?.id }}</ion-col>
-      <ion-col>
-        <img [src]="item.image? item.image:'../../assets/iconiv.jpg'" alt="Product Image" />
-      </ion-col>
-      <ion-col>{{ item?.name }}</ion-col>
-      <ion-col>{{ item?.price }}</ion-col>
-      <ion-col>{{ item?.quantity }}</ion-col>
-      <ion-col>{{ item?.price*item.quantity}}</ion-col>
-      <ion-col><ion-icon name="trash" class="text-danger" (click)="removeFromCart(i)"></ion-icon></ion-col>
-    </ion-row>
-
-
-    <ion-row class="total-row mb-5">
-      <ion-col></ion-col>
-      <ion-col></ion-col>
-      <ion-col></ion-col>
-      <ion-col></ion-col>
-      <ion-col>Total:</ion-col>
-      <ion-col>{{ updateTotalBill() }}</ion-col>
-    </ion-row>
-  </ng-container>
-
-    <ion-row class="mt-4 mb-5">
-      <ion-buttons class="ion-buttonss" *ngIf="cartItems.length">
-        <ion-button fill="clear" routerLink="/home">Continue shoping</ion-button>
-        <ion-button fill="clear" routerLink="/checkout">Checkout</ion-button>
-      </ion-buttons>
-    </ion-row>
-   
-  </ion-grid>
-  <ng-template #emptyMessage>
-    <ion-card >
-      <ion-card-header>
-        <ion-card-title>Empty cart</ion-card-title>
-        <ion-card-subtitle>Add products in your cart.</ion-card-subtitle>
-      </ion-card-header>
-    
-      <ion-card-content>
-        Your cart is empty please add products in cart by clicking shop now button.
-      </ion-card-content>
-    
-      <ion-button fill="clear" routerLink="/home">Shop Now</ion-button>
-      <ion-button fill="clear" routerLink="/home">Home</ion-button>
-    </ion-card>
-  </ng-template>
-
-
-
-
- 
-</ion-content>
--->
 <ion-content [fullscreen]="true" class="main-shop-container mt-5">
 <div class="card mt-5">
   <div class="row mt-5">
@@ -90,33 +19,34 @@
                   <div class="col">
                       <a href="#" class="border">{{item.quantity}}</a>
                   </div>
-                  <div class="col">&euro; {{item.price}}<span class="close" (click)="removeFromCart(i)">&#10005;</span></div>
+                  <div class="col">$ {{item.price}}<span class="close" (click)="removeFromCart(i)">&#10005;</span></div>
               </div>
           </div>
-          <div class="back-to-shop"><a routerLink="/shop">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+          <div class="back-to-shop" routerLink="/shop"><a >&leftarrow;</a><span class="text-muted">Back to shop</span></div>
       </div>
       <div class="col-md-4 summary">
           <div><h5><b>Summary</b></h5></div>
           <hr>
           <div class="row">
               <div class="col" style="padding-left:0;">ITEMS {{cartItems.length}}</div>
-              <div class="col text-right">&euro; {{updateTotalBill()}}</div>
+              <div class="col text-right">$ {{updateTotalBill()}}</div>
           </div>
           <form>
               <p>SHIPPING</p>
-              <select><option class="text-muted">Standard-Delivery- &euro;5.00</option></select>
+              <select><option class="text-muted">Standard-Delivery- $5.00</option></select>
 
           </form>
           <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
               <div class="col">TOTAL PRICE</div>
-              <div class="col text-right">&euro; {{(updateTotalBill())+5}}</div>
+              <div class="col text-right">$ {{ (updateTotalBill()) }}
+              </div>
           </div>
           <button routerLink="/checkout" class="btn">CHECKOUT</button>
       </div>
   </div>
   
 </div>
-
+<ion-row class="mt-5 mb-5"></ion-row>
 </ion-content>
 
 

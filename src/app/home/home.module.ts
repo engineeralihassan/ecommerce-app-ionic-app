@@ -7,6 +7,8 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { TestimonialCarouselComponent } from '../testimonial-carousel/testimonial-carousel.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { LoginComponent } from '../login/login.component';
+
 
 
 
@@ -20,7 +22,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, TestimonialCarouselComponent ],
+  declarations: [HomePage, TestimonialCarouselComponent ,LoginComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePageModule {}

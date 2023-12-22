@@ -2,7 +2,7 @@
 <ion-content [fullscreen]="true" class="main-shop-container">
   
 
-  <div class='K2-grid coll-3 icon-p-2 mt5'>
+  <div class='K2-grid coll-3 icon-p-2 mt5' *ngIf="!isLoading">
     <h2> Explore our latest categories </h2>
     <div class="home-chips">
     <ion-chip *ngFor="let element of data?.super_categories; let i = index"
@@ -13,10 +13,10 @@
 </div>            
     <ul>
       <li *ngFor="let element of data?.categories; let i = index">
-        <div class="bg">
+        <div class="bg" title="{{element.name}}">
           <img [src]="element?.image ? element?.image:'../../assets/foods.jpeg'" alt="">
           <div class="overlay">
-            <p>{{element.name}}</p>
+            <p class="truncate ">{{element.name}}</p>
             
           </div>
         </div>
@@ -25,7 +25,7 @@
   
     </ul>
     </div>
-  <div class = "main-wrapper">
+  <div class = "main-wrapper" *ngIf="!isLoading">
     <div class = "container">
         <div class = "main-title">
             <h1>Products List</h1>

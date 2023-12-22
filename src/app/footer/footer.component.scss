@@ -1,5 +1,8 @@
-on-toolbar,ion-footer{
-    position: fixed;
+ion-row{
+    min-height: 300px;
+    border: 2px solid red;
+    position: absolute;
     bottom: 0;
+    left: 0;
 }
 

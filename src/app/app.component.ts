@@ -3,6 +3,9 @@ import { Platform } from '@ionic/angular';
 import { CartService } from './services/cart.service';
 import { Subscription } from 'rxjs';
 import { register } from 'swiper/element/bundle';
+import { ModalController } from '@ionic/angular';
+import { LoginComponent } from './login/login.component';
+
 
 register();
 @Component({
@@ -33,7 +36,7 @@ export class AppComponent {
 
   navigate: any;  
   constructor(  
-    private platform: Platform ,private cartService: CartService 
+    private platform: Platform ,private cartService: CartService ,private modalController: ModalController
   ) {  
     this.sideMenu();  
     this.initializeApp();  
@@ -68,4 +71,13 @@ export class AppComponent {
       },  
     ];  
   } 
+
+
+
+  async openLoginModal() {
+    const modal = await this.modalController.create({
+      component: LoginComponent ,
+    });
+    return await modal.present();
+  }
 }

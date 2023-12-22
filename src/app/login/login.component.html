@@ -1,0 +1,24 @@
+
+
+<ion-content class="mt-5">
+  <ion-row class="close-icon" (click)="closeModal()"><ion-icon name="close-outline"></ion-icon></ion-row>
+  
+  <div class="login-page" >
+   
+    <div class="form">
+      <form class="register-form" *ngIf="!isLogin && isSignUp">
+        <input type="text" placeholder="name"/>
+        <input type="password" placeholder="password"/>
+        <input type="text" placeholder="email address"/>
+        <button (click)="signUp()">create</button>
+        <p class="message">Already registered? <a (click)="toggleForm()">Sign In</a></p>
+      </form>
+      <form class="login-form" *ngIf="isLogin && !isSignUp">
+        <input type="text" placeholder="username"/>
+        <input type="password" placeholder="password"/>
+        <button (click)="login()">login</button>
+        <p class="message">Not registered? <a (click)="toggleForm()">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+</ion-content>

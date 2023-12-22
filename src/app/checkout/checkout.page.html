@@ -1,14 +1,13 @@
 
-<ion-content fullscreen="true" class="checkout-content-container">
-<ion-row>
+<ion-content fullscreen="true" class="checkout-content-container mt-5 mb-5">
+<ion-row class="mt-5 p-4">
   <header>
-    <h3>Checkout</h3>
+    <h1>Checkout</h1>
   </header>
 </ion-row>
 <ion-row>
   <main class="checkout-page-divs">
-  
-    <section class="checkout-form">
+    <section class="checkout-form order-sm-2">
       <form action="#!" method="get">
         <h6>Contact information</h6>
         <div class="form-control">
@@ -75,47 +74,103 @@
           <input type="checkbox" name="checkout-checkbox" id="checkout-checkbox">
           <label for="checkout-checkbox">Save this information for next time</label>
         </div>
-        <div class="form-control-btn">
-          <button>Continue</button>
-        </div>
+     
       </form>
+      <button class="btn mt-3" (click)="checkout()">
+        <ion-icon name="fa-lock"></ion-icon> Pay Now
+      </button>
     </section>
   
-    <section class="checkout-details" style="border: 2px solid red;">
-      <div class="checkout-details-inner" style="border: 2px solid red;">
-        <div class="checkout-lists" style="border: 2px solid red;">
-          <div class="card" style="border: 2px solid red;">
-            <div class="card-image"><img src="https://rvs-checkout-page.onrender.com/photo1.png" alt=""></div>
-            <div class="card-details">
-              <div class="card-name">Vintage Backbag</div>
-              <div class="card-price">$54.99 <span>$94.99</span></div>
-              <div class="card-wheel">
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
+    <section class="checkout-details mt-3 order-sm-1">
+      <div class="checkout-details-inner">
+        <div class="checkout-lists">
+          <div class="right-side">
+            <div class="receipt">
+              <h2 class="receipt-heading">Receipt Summary</h2>
+              <div>
+                <table class="table">
+                  <tr class="mt-3">
+                    <td>2 Items</td>
+                    <td class="price">499.00 </td>
+                  </tr>
+               
+                  <tr class="total mt-3">
+                    <td>Total</td>
+                    <td class="price">546.41 $</td>
+                  </tr>
+                </table>
               </div>
             </div>
-          </div>
-          <div class="card" style="border: 2px solid red;">
-            <div class="card-image"><img src="https://rvs-checkout-page.onrender.com/photo2.png" alt=""></div>
-            <div class="card-details">
-              <div class="card-name">Levi Shoes</div>
-              <div class="card-price">$74.99 <span>$124.99</span></div>
-              <div class="card-wheel">
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
-              </div>
+    
+            <div class="payment-info mt-3">
+              <h3 class="payment-heading">Payment Information</h3>
+              <form
+                class="form-box"
+                enctype="text/plain"
+                method="get"
+                target="_blank"
+              >
+                <div>
+                  <label for="full-name">Full Name</label>
+                  <input
+                    id="full-name"
+                    name="full-name"
+                    placeholder="Ali Hassan"
+                    required
+                    type="text"
+                  />
+                </div>
+    
+                <div>
+                  <label for="credit-card-num"
+                    >Card Number
+                  ></label>
+                  <input
+                    id="credit-card-num"
+                    name="credit-card-num"
+                    placeholder="1111-2222-3333-4444"
+                    required
+                    type="text"
+                  />
+                </div>
+    
+                <div class="expiration-year-section">
+                  <p class="expires">Expires on:</p>
+                  <div class="card-experation">
+                    <div>
+                    <label for="expiration-month">Month</label>
+                    <select id="expiration-month" name="expiration-month" required>
+                      <option value="">Month:</option>
+                      <option value="">January</option>
+                      <option value="">February</option>
+                      <option value="">March</option>
+                      <option value="">April</option>
+                      <option value="">May</option>
+                      <option value="">June</option>
+                      <option value="">July</option>
+                      <option value="">August</option>
+                      <option value="">September</option>
+                      <option value="">October</option>
+                      <option value="">November</option>
+                      <option value="">Decemeber</option>
+                    </select>
+                    </div>
+                    <div>
+                    <label class="expiration-year">Year</label>
+                    <select id="experation-year" name="experation-year" required>
+                      <option value="">Year</option>
+                      <option value="">2023</option>
+                      <option value="">2024</option>
+                      <option value="">2025</option>
+                      <option value="">2026</option>
+                    </select>
+                  </div>
+                  </div>
+                </div>
+
+              </form>
             </div>
           </div>
-        </div>
-        <div class="checkout-shipping">
-          <h6>Shipping</h6>
-          <p>$19</p>
-        </div>
-        <div class="checkout-total">
-          <h6>Total</h6>
-          <p>$148.98</p>
         </div>
       </div>
     </section>
@@ -125,6 +180,9 @@
 
 </ion-row>
 
-
+<ion-row class="mt-5 mb-5"></ion-row>
 
 </ion-content>
+
+
+

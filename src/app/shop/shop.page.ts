@@ -12,7 +12,7 @@ import { ToastController } from '@ionic/angular';
 export class ShopPage{
 
   query: any = {"business_id":76, "platform":"app", "super_category_id":"1413"}; 
-  isLoading!: boolean;
+  isLoading:boolean=true;
   data:any;
   items:any[]=[];
   activeChipIndex = 1;

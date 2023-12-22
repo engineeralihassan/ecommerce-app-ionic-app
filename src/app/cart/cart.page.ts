@@ -26,7 +26,7 @@ export class CartPage implements OnInit {
       console.log("total bil 1 iteration:",total + (item.price * (+item.quantity)));
       return total + (item.price * (+item.quantity));
     }, 0);
-    return this.totalBill;
+    return this.totalBill.toFixed(2)+5.00;
   }
 
   addToCart(product: any): void {
