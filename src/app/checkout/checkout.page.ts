@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { loadStripe } from '@stripe/stripe-js';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -9,35 +11,43 @@ import { loadStripe } from '@stripe/stripe-js';
   styleUrls: ['./checkout.page.scss'],
 })
 export class CheckoutPage {
-  priceId = "price_1HSxpTFHabj9XRH6DMA8pC7l";
-product = {
-  title: "Classic Peace Lily",
-  subTitle: "Popular House Plant",
-  description:
-    "Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo planter with a blue & red ribbom and butterfly pick.",
-  price: 18.0,
-};
-quantity = 1;
-stripePromise = loadStripe(environment.stripe_key);
-  async checkout() {
-       console.log("Checout calls");
-    const stripe = await this.stripePromise;
-    if(stripe){
-      const { error } = await stripe.redirectToCheckout({
-        mode: "payment",
-        lineItems: [{ price: this.priceId, quantity: this.quantity }],
-        successUrl: `${window.location.href}/success`,
-        cancelUrl: `${window.location.href}/failure`,
-      });
-      if (error) {
-        console.log(error.message);
+  checkoutForm: FormGroup;
+  
+  constructor(private fb: FormBuilder) {
+    this.checkoutForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', Validators.required],
+      name: ['', Validators.required],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      country: ['', Validators.required],
+      postal: ['', Validators.required],
+      saveInfo: [false]
+    });
+  }
+
+  get formControls() {
+    return this.checkoutForm.controls;
+  }
+
+  getErrorMessage(controlName: string) {
+    const control = this.checkoutForm.get(controlName);
+    if(control){
+      if (control.hasError('required')) {
+        return 'This field is required';
+      } else if (control.hasError('email')) {
+        return 'Invalid email address';
       }
     }
- 
-    // If `redirectToCheckout` fails due to a browser or network
-    // error, display the localized error message to your customer
-    // using `error.message`.
-  
+
+    return '';
+  }
+
+  checkout() {
+    if(!this.checkoutForm.valid){
+      alert("please fill out all the required fields")
+    }
+    console.log("Checkout button clicked!",this.checkoutForm.value);
   }
 
 }

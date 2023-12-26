@@ -331,3 +331,11 @@ ion-row{
      justify-content: flex-start;
      align-items: center;
   }
+
+  .form-control ion-icon{
+    color: red;
+    margin-left: 3px;
+  }
+  input.ng-invalid.ng-touched {
+    border: 1px solid red !important;
+  }

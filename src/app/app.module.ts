@@ -18,7 +18,7 @@ import { DataViewModule } from 'primeng/dataview';
 @NgModule({
   declarations: [AppComponent,FooterComponent],
   imports: [BrowserModule, IonicModule.forRoot(),HttpClientModule, AppRoutingModule,DataViewModule,BrowserAnimationsModule ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
