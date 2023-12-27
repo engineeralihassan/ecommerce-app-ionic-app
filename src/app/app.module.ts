@@ -16,7 +16,7 @@ import { NgxStripeModule } from 'ngx-stripe';
 
 
 @NgModule({
-  declarations: [AppComponent,FooterComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(),HttpClientModule, AppRoutingModule,DataViewModule,BrowserAnimationsModule , NgxStripeModule.forRoot(),],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },],
   bootstrap: [AppComponent],
