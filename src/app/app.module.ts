@@ -15,10 +15,9 @@ import { DataViewModule } from 'primeng/dataview';
 import { NgxStripeModule } from 'ngx-stripe';
 
 
-
 @NgModule({
   declarations: [AppComponent,FooterComponent],
-  imports: [BrowserModule, IonicModule.forRoot(),HttpClientModule, AppRoutingModule,DataViewModule,BrowserAnimationsModule , NgxStripeModule.forRoot('pk_test_51OP0x9CTKx631UqNEM3yroPnDECbSUPGhoLAS8jztp48Cs62RYfZQHyEeZvQ4AscaeY2MWHFMkDn0WUmgBNx8xCh00Gh8UK6uq'),],
+  imports: [BrowserModule, IonicModule.forRoot(),HttpClientModule, AppRoutingModule,DataViewModule,BrowserAnimationsModule , NgxStripeModule.forRoot(),],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },],
   bootstrap: [AppComponent],
 })

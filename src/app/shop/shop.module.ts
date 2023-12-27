@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { ShopPageRoutingModule } from './shop-routing.module';
 
 import { ShopPage } from './shop.page';
+import { FooterComponent } from '../footer/footer.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ShopPageRoutingModule
+    ShopPageRoutingModule,
+   
   ],
-  declarations: [ShopPage]
+  declarations: [ShopPage,FooterComponent]
 })
 export class ShopPageModule {}
