@@ -8,6 +8,7 @@ export class CartService {
 
   private cartItems: any[] = [];
   private cartLengthSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  totalBill:any=0;
 
   getCartItems(): any[] {
     return this.cartItems;

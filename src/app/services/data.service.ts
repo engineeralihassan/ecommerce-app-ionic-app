@@ -9,6 +9,7 @@ export class DataService {
 
   private apiUrl = 'https://mknxapi.com/api/index.php/menu/categories_customer';
 
+
   constructor(private http: HttpClient) {}
 
   searchData(query: any): Observable<any> {
@@ -17,4 +18,5 @@ export class DataService {
     });
     return this.http.post(this.apiUrl, query, { headers });
   }
+  
 }
