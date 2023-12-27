@@ -7,6 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { CheckoutPageRoutingModule } from './checkout-routing.module';
 
 import { CheckoutPage } from './checkout.page';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {
+  injectStripe,
+  StripePaymentElementComponent
+} from 'ngx-stripe';
+import {
+  StripeElementsOptions, 
+  StripePaymentElementOptions
+} from '@stripe/stripe-js';
+
 
 
 @NgModule({
@@ -15,8 +25,9 @@ import { CheckoutPage } from './checkout.page';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    CheckoutPageRoutingModule
+    CheckoutPageRoutingModule,StripePaymentElementComponent
   ],
-  declarations: [CheckoutPage]
+  declarations: [CheckoutPage],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CheckoutPageModule {}

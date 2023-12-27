@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { loadStripe } from '@stripe/stripe-js';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-
+import {
+  injectStripe,
+  StripePaymentElementComponent,
+} from 'ngx-stripe';
+import { StripeElementsOptions, StripePaymentElementOptions } from '@stripe/stripe-js';
 
 @Component({
   selector: 'app-checkout',
@@ -12,7 +13,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CheckoutPage {
   checkoutForm: FormGroup;
-  
+  @ViewChild(StripePaymentElementComponent)
+  paymentElement!: StripePaymentElementComponent;
+
   constructor(private fb: FormBuilder) {
     this.checkoutForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -22,32 +25,87 @@ export class CheckoutPage {
       city: ['', Validators.required],
       country: ['', Validators.required],
       postal: ['', Validators.required],
-      saveInfo: [false]
+      amount: [2500, [Validators.required, Validators.pattern(/\d+/)]],
+      saveInfo: [false],
     });
   }
-
-  get formControls() {
-    return this.checkoutForm.controls;
+  ngOnInit() {
+    // Additional initialization logic if needed
+    this.paymentElement?.elements?.create('card');
   }
+  elementsOptions: any = {
+    locale: 'en',
+    client: 'sk_test_51OP0x9CTKx631UqNYmlm7iGg3g7whjnX12YceqGkLHcp51l9Sj0diDcN9jsp9hlsM7OB0XXpnWTGPdh2j3p8639l009cej6xuN', // Replace with your own secret key
+    appearance: {
+      theme: 'flat',
+    },
+  };
 
-  getErrorMessage(controlName: string) {
-    const control = this.checkoutForm.get(controlName);
-    if(control){
-      if (control.hasError('required')) {
-        return 'This field is required';
-      } else if (control.hasError('email')) {
-        return 'Invalid email address';
-      }
+  paymentElementOptions: StripePaymentElementOptions = {
+    layout: {
+      type: 'tabs',
+      defaultCollapsed: false,
+      radios: false,
+      spacedAccordionItems: false,
+    },
+  };
+
+  // Replace with your own public key
+  stripe = injectStripe('pk_test_51OP0x9CTKx631UqNEM3yroPnDECbSUPGhoLAS8jztp48Cs62RYfZQHyEeZvQ4AscaeY2MWHFMkDn0WUmgBNx8xCh00Gh8UK6uq');
+  paying = false;
+
+  pay() {
+    if (this.paying || this.checkoutForm.invalid) return;
+    this.paying = true;
+
+    const { name, email, address, postal, city } = this.checkoutForm.getRawValue();
+
+    const cardElement = this.paymentElement?.elements?.getElement('card');
+
+    // Check if cardElement is not null before proceeding
+    if (!cardElement) {
+      console.error('Card element is null');
+      this.paying = false;
+      return;
     }
 
-    return '';
+    // Make sure to replace 'your_client_secret' with the actual PaymentIntent client secret
+    this.stripe
+      .confirmCardPayment('sk_test_51OP0x9CTKx631UqNYmlm7iGg3g7whjnX12YceqGkLHcp51l9Sj0diDcN9jsp9hlsM7OB0XXpnWTGPdh2j3p8639l009cej6xuN', {
+        payment_method: {
+          card: cardElement,
+          billing_details: {
+            name: name as string,
+            email: email as string,
+            address: {
+              line1: address as string,
+              postal_code: postal as string,
+              city: city as string,
+            },
+          },
+        },
+        setup_future_usage: 'on_session', // You may adjust this based on your use case
+        shipping: {
+          name: name as string,
+          address: {
+            line1: address as string,
+            postal_code: postal as string,
+            city: city as string,
+          },
+        },
+      })
+      .subscribe((result: any) => {
+        this.paying = false;
+        if (result.error) {
+          // Show error to your customer (e.g., insufficient funds)
+          alert({ success: false, error: result.error.message });
+        } else {
+          // The payment has been processed!
+          if (result.paymentIntent?.status === 'succeeded') {
+            // Show a success message to your customer
+            alert({ success: true });
+          }
+        }
+      });
   }
-
-  checkout() {
-    if(!this.checkoutForm.valid){
-      alert("please fill out all the required fields")
-    }
-    console.log("Checkout button clicked!",this.checkoutForm.value);
-  }
-
 }

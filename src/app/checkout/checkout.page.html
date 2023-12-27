@@ -8,7 +8,7 @@
 <ion-row>
   <main class="checkout-page-divs">
     <section class="checkout-form order-sm-2">
-      <form [formGroup]="checkoutForm" (ngSubmit)="checkout()">
+      <form [formGroup]="checkoutForm" (ngSubmit)="pay()">
         <h6>Contact information</h6>
         <div class="form-control">
           <label for="checkout-email">E-mail <ion-icon name="star"></ion-icon></label>
@@ -69,15 +69,36 @@
               <input type="numeric" name="checkout-postal"  formControlName="postal" id="checkout-postal" placeholder="Your postal code...">
             </div>
           </div>
+
+        </div>
+        <div class="form-control">
+          <label for="checkout-postal">Total amount <ion-icon name="star"></ion-icon></label>
+          <div>
+            <input type="numeric" name="checkout-postal"  formControlName="amount" id="checkout-postal" placeholder="Your postal code...">
+          </div>
         </div>
         <div class="form-control checkbox-control">
           <input type="checkbox" name="checkout-checkbox"  formControlName="saveInfo" id="checkout-checkbox">
           <label for="checkout-checkbox">Save this information for next time</label>
         </div>
+        <!-- <div class="form-control checkbox-control">
+          <ngx-stripe [elementsOptions]="elementsOptions">
+            <ngx-stripe-payment [options]="paymentElementOptions" />
+           
+          </ngx-stripe>
+          
+          
+          
+          
+        </div> -->
+
+  
+
+        
      
       </form>
-      <button class="btn mt-3" [disabled]="!checkoutForm.valid" (click)="checkout()">
-        <ion-icon name="fa-lock"></ion-icon> Checkout Now
+      <button class="btn mt-3" [disabled]="!checkoutForm.valid" (click)="pay()">
+         Checkout Now
       </button>
     </section>
   </main>
