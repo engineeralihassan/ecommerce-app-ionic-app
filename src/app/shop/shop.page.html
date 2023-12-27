@@ -26,7 +26,14 @@
     </ul>
     </div>
   <div class = "main-wrapper" *ngIf="!isLoading">
-    <div class = "container">
+    <div class="loader-container-colum" *ngIf="searching">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only"></span>
+        </div>
+      </div>
+    </div>
+    <div class = "container" *ngIf="!searching">
         <div class = "main-title">
             <h1>Products List</h1>
         </div>

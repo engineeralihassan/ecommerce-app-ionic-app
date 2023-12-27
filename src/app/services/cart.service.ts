@@ -41,4 +41,8 @@ export class CartService {
     this.cartItems.splice(index, 1);
     this.updateCartLength();
   }
+  clearCart(){
+    this.cartItems=[];
+    this.updateCartLength();
+  }
 }

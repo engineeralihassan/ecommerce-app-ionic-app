@@ -12,14 +12,40 @@ import { ToastController } from '@ionic/angular';
 export class ShopPage{
 
   query: any = {"business_id":76, "platform":"app", "super_category_id":"1413"}; 
+  isFirstTime:boolean=true;
+  inputValue: string = '';
   isLoading:boolean=true;
   data:any;
   items:any[]=[];
   activeChipIndex = 1;
-  constructor(private toastController: ToastController,private apiService: DataService, private loadingController: LoadingController,private cartService: CartService ) {}
+  dataCopy:any[]=[];
+  searching:any;
+  constructor(private sharedService: DataService,private toastController: ToastController,private apiService: DataService, private loadingController: LoadingController,private cartService: CartService ) {}
 
   ngOnInit() {
-    this.search();
+    if(this.isFirstTime){
+      this.search();
+    }
+   
+    this.sharedService.inputValue$.subscribe((value) => {
+      this.inputValue = value;
+      console.log("Updates value",value);
+      this.searching=true;
+      if(!value){
+        if(this.dataCopy.length){
+          this.items=this.dataCopy;
+          this.searching=false;
+        }
+        
+      }else{
+        console.log("inside the else",value);
+        this.items = this.dataCopy.filter((item) => item.name.includes(value));
+;
+        console.log("items searched",this.items)
+        this.searching=false;
+      }
+      this.searching=false;
+    });
   }
 
   async presentToast(message: string, duration: number = 300, position: 'top' | 'bottom' | 'middle' = 'bottom') {
@@ -57,6 +83,8 @@ export class ShopPage{
     if (element.items.length) {
       // Use a new array instead of spreading the existing array
       this.items = [...this.items, ...element.items];
+      this.dataCopy=this.items;
+      this.isFirstTime=false;
     }
   });
         console.log("The Items are::",this.items);

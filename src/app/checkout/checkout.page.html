@@ -8,7 +8,7 @@
 <ion-row>
   <main class="checkout-page-divs">
     <section class="checkout-form order-sm-2">
-      <form [formGroup]="checkoutForm" (ngSubmit)="pay()">
+      <form [formGroup]="checkoutForm" (ngSubmit)="pay()" *ngIf="!isSubmitted; else successmessage ">
         <h6>Contact information</h6>
         <div class="form-control">
           <label for="checkout-email">E-mail <ion-icon name="star"></ion-icon></label>
@@ -97,9 +97,21 @@
         
      
       </form>
-      <button class="btn mt-3" [disabled]="!checkoutForm.valid" (click)="pay()">
+      <button class="btn mt-3" [disabled]="!checkoutForm.valid" (click)="pay()" *ngIf="!isSubmitted">
+        <div *ngIf="isLoading" class="spinner-border loaders" role="status" style="height:20px; width:20px; ">
+          <span class="sr-only"></span>
+        </div> 
          Checkout Now
       </button>
+      <ng-template #successmessage>
+        <div class="successMesg">
+          <div class="icon-container" style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+            <ion-icon name="checkmark"></ion-icon>
+          </div>
+            <h1>Success</h1> 
+            <p> Hurray Your order submitted successfully;<br/> you will be redirected to home page shortly</p>
+          </div>
+      </ng-template>
     </section>
   </main>
 

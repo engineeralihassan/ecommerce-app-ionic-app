@@ -8,7 +8,7 @@
     <!-- The content on the right side -->
     <ion-buttons slot="end">
       <!-- Search bar input -->
-      <ion-searchbar placeholder="Search products" style="text-align: center;"></ion-searchbar>
+      <ion-searchbar (input)="onInputValueChanged($event)" placeholder="Search products" style="text-align: center;"></ion-searchbar>
 
       <!-- Persons icon -->
       <ion-button (click)="openLoginModal()">

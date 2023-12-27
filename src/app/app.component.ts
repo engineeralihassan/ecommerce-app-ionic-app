@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { register } from 'swiper/element/bundle';
 import { ModalController } from '@ionic/angular';
 import { LoginComponent } from './login/login.component';
+import { DataService } from './services/data.service';
+DataService
 
 
 register();
@@ -17,6 +19,9 @@ export class AppComponent {
   cartLength: number = 0;private cartLengthSubscription!: Subscription;
 
 
+  onInputValueChanged(value: any) {
+    this.datService.setInputValue(value.target.value);
+  }
 
   ngOnInit(): void {
     this.updateCartLength();
@@ -36,7 +41,7 @@ export class AppComponent {
 
   navigate: any;  
   constructor(  
-    private platform: Platform ,private cartService: CartService ,private modalController: ModalController
+    private platform: Platform ,private cartService: CartService ,private datService:DataService,private modalController: ModalController
   ) {  
     this.sideMenu();  
     this.initializeApp();  
