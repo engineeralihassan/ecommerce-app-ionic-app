@@ -1,7 +1,7 @@
 
 <ion-content [fullscreen]="true" class="main-shop-container mt-5">
-<div class="card mt-5">
-  <div class="row mt-5">
+<div class="card main-cart-container-box">
+  <div class="row" *ngIf="cartItems.length">
       <div class="col-md-8 cart">
           <div class="title">
               <div class="row">
@@ -17,7 +17,7 @@
                       <div class="row">{{item.name}}</div>
                   </div>
                   <div class="col">
-                      <a href="#" class="border">{{item.quantity}}</a>
+                    <a (click)="addToCart(item,true)" class="border abtn">-</a>  <a class="border">{{item.quantity}}</a> <a (click)="addToCart(item)" class="border abtn">+</a>
                   </div>
                   <div class="col">$ {{item.price}}<span class="close" (click)="removeFromCart(i)">&#10005;</span></div>
               </div>
@@ -44,6 +44,30 @@
           <button routerLink="/checkout" class="btn">CHECKOUT</button>
       </div>
   </div>
+  <div class="container-fluid empty-cart-message" *ngIf="!cartItems.length">
+    <div class="row">
+    
+     <div class="col-md-12">
+     
+         <div class="card">
+       <div class="card-body cart">
+           <div class="col-sm-12 empty-cart-cls text-center">
+             <img src="../../assets/empty-cart-7359557-6024626.png" class="img-fluid mb-2 mr-3 image-icon-cart">
+             <h3><strong>Nothing in your cart</strong></h3>
+             <h4>Add your favourite products in it:)</h4>
+             <button class="button-empty-cart" routerLink="/shop">Continue shoping</button>
+             
+           
+           </div>
+       </div>
+   </div>
+       
+     
+     </div>
+    
+    </div>
+   
+   </div>
   
 </div>
 <ion-row class="mt-5 mb-5"></ion-row>

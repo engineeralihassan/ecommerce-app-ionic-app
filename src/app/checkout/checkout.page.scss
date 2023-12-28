@@ -302,7 +302,7 @@ ion-row{
   }
   
   .btn {
-    background-color: #4c616b;
+    background-color: #a5ba8d;
     border: none;
     border-radius: 8px;
     color: #eff2f3;
@@ -315,7 +315,6 @@ ion-row{
   }
   
   .btn:hover {
-    background-color: #5f7986;
     transition: ease-out 0.1s;
   }
   
@@ -340,6 +339,10 @@ ion-row{
     border: 1px solid red !important;
   }
 
+
+  .successMesg{
+    margin: auto;
+  }
 
   .successMesg h1 {
     color: #88B04B;
@@ -367,7 +370,9 @@ ion-row{
   border-radius: 4px;
   box-shadow: 0 2px 3px #C8D0D8;
   display: inline-block;
-  margin: 0 auto;
+  margin: auto;
+  align-self: center;
+
   }
   .successMesg .icon-container{
     display: flex;
@@ -375,4 +380,10 @@ ion-row{
     align-items: center;
     font-size: 50px;
     font-weight: bold;
+  }
+  .message-container-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }

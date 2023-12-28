@@ -30,8 +30,8 @@ export class CartPage implements OnInit {
     return this.totalBill.toFixed(2)+5.00;
   }
 
-  addToCart(product: any): void {
-    this.cartService.addToCart(product);
+  addToCart(product: any,remove=false): void {
+    this.cartService.addToCart(product,remove);
     this.cartItems = this.cartService.getCartItems();
     this.updateTotalBill();
   }

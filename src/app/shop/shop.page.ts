@@ -50,7 +50,7 @@ export class ShopPage{
 
   async presentToast(message: string, duration: number = 300, position: 'top' | 'bottom' | 'middle' = 'bottom') {
     const toast = await this.toastController.create({
-      message: `Product added to cart successfully`,
+      message: message,
       duration: duration,
       position: position,
       icon:'glob',
@@ -108,5 +108,12 @@ export class ShopPage{
     this.presentToast('Add to cart succesfully!', 1000, 'middle');
    }
   }
+  addToFav(product:any){
+    console.log("Product is:",product);
+    if(product){
+     this.cartService.addToFav(product);
+     this.presentToast('Add to Favroutes succesfully!', 1000, 'middle');
+    }
+   }
 
 }

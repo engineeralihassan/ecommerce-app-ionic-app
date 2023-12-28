@@ -10,7 +10,7 @@
   background-repeat: no-repeat;
 
   min-height: 500px;
-  color: #0000;
+  color: #a5ba8d;
   margin-top: 55px;
   display: flex;
   justify-content: flex-start;
@@ -23,16 +23,17 @@
 }
 
 .hero-content h1{
-  font-size: 30px;
-  font-weight: bold;
-  color: rgb(34, 33, 33);
+  font-size: 50px;
+  font-weight: 900;
+
+  color: #a5ba8d;
 }
 .hero-content p{
   color: rgb(34, 33, 33);
 }
 @media(max-width:700px){
   .hero-content h1{
-    font-size: 20px;
+    font-size: 30px;
   }
   .main-hero-section .hero-content{
     flex-basis: 100%;
@@ -44,7 +45,7 @@
 .section-header-row ion-title{
   font-size: 40px;
   margin-top: 20px;
-  color: rgb(34, 33, 33);
+  color: #a5ba8d;
   font-weight: bold;
 
 }
@@ -55,7 +56,7 @@
 }
 .home-chips .active{
   color: #fff;
-  --background: rgb(34, 33, 33);
+  --background: #a5ba8d;
 }
 .categories-section-row{
   padding: 20px;
@@ -71,7 +72,7 @@
   min-width: 20%;
   flex-basis: 25%;
   height: 100px;
-  color: rgb(34, 33, 33);
+  color: #a5ba8d;
   background-color: #fff;
   border: 1px dotted #03045E;
   display: flex;
@@ -84,7 +85,7 @@
 }
 .categories-section-row .category-box:hover{
  
-  background: rgb(34, 33, 33) !important;
+  background: #a5ba8d !important;
   color: #fff;
 }
 .category-box img{
@@ -168,7 +169,7 @@
 display: flex;
 justify-content: space-between;
 align-items: flex-start;
-color: rgb(17, 18, 19);
+color: #a5ba8d;
 }
 .lower p.name{
 text-decoration: underline;
@@ -268,12 +269,13 @@ text-decoration: underline;
   width: 150px;
   height: 33px;
   background: transparent;
-  border: 1px solid black;
+  border: 1px solid #a5ba8d;
   transition: 0.5s ease;
   cursor: pointer;
+  color: #a5ba8d;
 }
 #btn3 button:hover{
-  background-color: rgb(14, 13, 13);
+  background-color: #a5ba8d;
   color: #ffff;
 }
 @media screen and (max-width:895px){
@@ -307,10 +309,11 @@ margin-top: 25px;
   align-items: center;
 }
 
-.card-titel{
+.products-trendy-container .card-titel{
   font-size: 16px;
   font-weight: bold;
   text-decoration: underline;
+  color: #a5ba8d;
 
 }
 

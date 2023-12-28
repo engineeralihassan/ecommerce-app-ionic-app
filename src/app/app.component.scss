@@ -1,5 +1,31 @@
 .topbar{
     
     color: #fff;   
-    --background:rgb(34, 33, 33);
+    --background:#a5ba8d;
+}
+.navbar-list-item{
+    color: #a5ba8d;
+    ion-icon{
+        color: #a5ba8d !important;
+    }
+}
+.navbar-list-item:hover{
+    background-color: #a5ba8d !important;
+    color: #ffff !important;
+     ion-icon{
+        color: #a5ba8d !important;
+    }
+}
+ion-badge{
+    color: #fff;   
+    --background:#4d76b3;
+}
+ion-title{
+
+ font-size: 30px;
+ font-weight: bold;
+}
+.logo-icon{
+    margin-top: 5px;
+    color: #fc803c;
 }

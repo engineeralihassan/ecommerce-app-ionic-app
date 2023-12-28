@@ -1,0 +1,57 @@
+
+
+<ion-content [fullscreen]="true" class="mt-5">
+  <div class="row mt-5 main-favourites-container">
+    <h1 class="text-center text-dark mt-5">My Favourite products</h1>
+  </div>
+  <div class="row p-5" *ngIf="favItems.length">
+    <!--  -->
+    <div class=" shadow-sm rounded productItem m-3" *ngFor="let item of favItems ; let i = index" >
+        <div class="product-grid">
+            <div class="product-image">
+                <a href="#" class="image">
+                    <img src="../../assets/reel.jpg">
+                </a>
+                <span class="product-discount-label">-23%</span>
+                <ul class="product-links">
+                   
+                    <li (click)="addToCart(item)"><a><ion-icon name="cart"></ion-icon></a></li>
+                    <li><a routerLink="/single-product"><ion-icon name="eye"></ion-icon></a></li>
+                    <li (click)="removeFromFav(i)"><a ><ion-icon name="trash"></ion-icon></a></li>
+                </ul>
+                <a (click)="addToCart(item)" class="add-to-cart">Add to cart</a>
+            </div>
+            <div class="product-content">
+                <h3 class="title"><a routerLink="/single-product">Women's Blouse Top</a></h3>
+                <div class="price">$53.55 <span>$68.88</span></div>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+
+</div>
+<div class="container-fluid  mt-100" *ngIf="!favItems.length">
+  <div class="row">
+  
+   <div class="col-md-12">
+   
+       <div class="card">
+     <div class="card-body cart">
+         <div class="col-sm-12 empty-cart-cls text-center">
+           <img src="../../assets/images/favourite.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+           <h3><strong>Nothing in to your faveroutes</strong></h3>
+           <h4>Add your favourite products in it:)</h4>
+           <a routerLink="/shop" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</a>
+           
+         
+         </div>
+     </div>
+ </div>
+     
+   
+   </div>
+  
+  </div>
+ 
+ </div>
+</ion-content>

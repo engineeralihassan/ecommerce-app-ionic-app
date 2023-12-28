@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'shop',
     loadChildren: () => import('./shop/shop.module').then( m => m.ShopPageModule)
   },
+{
+  path: 'favorite-products',
+    loadChildren: () => import('./favorite-products/favorite-products.module').then( m => m.FavoriteProductsPageModule)
+},
   {
     path: 'cart',
     loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
@@ -26,6 +30,10 @@ const routes: Routes = [
   {
     path: 'checkout',
     loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
+  },
+  {
+    path: 'favorite-products',
+    loadChildren: () => import('./favorite-products/favorite-products.module').then( m => m.FavoriteProductsPageModule)
   },
 ];
 

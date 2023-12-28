@@ -3,7 +3,7 @@
   
 
   <div class='K2-grid coll-3 icon-p-2 mt5' *ngIf="!isLoading">
-    <h2> Explore our latest categories </h2>
+    <h2> Latest categories </h2>
     <div class="home-chips">
     <ion-chip *ngFor="let element of data?.super_categories; let i = index"
     [ngClass]="{'active': i === activeChipIndex}"
@@ -33,41 +33,36 @@
         </div>
       </div>
     </div>
-    <div class = "container" *ngIf="!searching">
-        <div class = "main-title">
-            <h1>Products List</h1>
-        </div>
-
-        <div class = "item-list">
-            <div class = "item" *ngFor="let product of items ; let i = index">
-                <div class = "item-img">
-                    <img [src] = "product?.image? product?.image:'../../assets/foods.jpeg'">
-                    <div class = "icon-list">
-                        <button type = "button">
-                            <ion-icon name="heart"></ion-icon>
-                        </button>
-                        <button type = "button">
-                          <ion-icon name="eye"></ion-icon>
-                        </button>
-                        <button (click)="addToCart(product)" type = "button">
-                          <ion-icon name="cart"></ion-icon>
-                        </button>
-                    </div>
+    <div  *ngIf="!searching">
+      <div class="row mt-5 main-favourites-container">
+        <h1 class="text-center text-dark mt-5">Our latest products</h1>
+      </div>
+      <div class="row p-5" >
+        <!--  -->
+        <div class="shadow-sm border rounded  productItem m-3" *ngFor="let product of items ; let i = index" >
+            <div class="product-grid">
+                <div class="product-image">
+                    <a routerLink="" class="image">
+                        <img [src]="product.image? product.image:'../../assets/reel.jpg'">
+                    </a>
+                    <span class="product-discount-label">-{{product?.discount_value}}%</span>
+                    <ul class="product-links">
+                       
+                        <li (click)="addToCart(product)"><a><ion-icon name="cart"></ion-icon></a></li>
+                        <li><a routerLink="/single-product"><ion-icon name="eye"></ion-icon></a></li>
+                        <li (click)="addToFav(product)"><a style="color: red;"><ion-icon name="heart"></ion-icon></a></li>
+                    </ul>
+                    <a routerLink="/cart" class="add-to-cart">Add to Cart</a>
                 </div>
-                <div class = "item-detail">
-                    <a href = "#" class = "item-name">{{product.name}}</a>
-                    <div class = "item-price">
-                        <span class = "new-price">${{product.price}}</span>
-                        <span class = "old-price">$275.60</span>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore fugiat quod corporis delectus sequi laudantium molestias vero distinctio, qui numquam dolore, corrupti, enim consectetur cum?</p>
-                    <button type = "button" class = "add-btn">add to cart</button>
+                <div class="product-content">
+                    <h3 class="title truncate " title="{{product.name}}"><a routerLink="/single-product">{{product.name}}</a></h3>
+                    <div class="price">${{product.price}}</div>
                 </div>
             </div>
-
-
- 
         </div>
+        <!--  -->
+    
+    </div>
     </div> 
 </div>
 
