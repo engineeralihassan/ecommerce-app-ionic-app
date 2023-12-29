@@ -100,10 +100,14 @@ export class ShopPage{
       console.error('Error displaying loading:', error);
     }
   }
-
+  
+  updateProd(product:any){
+    this.cartService.updateProduct(product);
+  }
   addToCart(product:any){
    console.log("Product is:",product);
    if(product){
+    
     this.cartService.addToCart(product);
     this.presentToast('Add to cart succesfully!', 1000, 'middle');
    }

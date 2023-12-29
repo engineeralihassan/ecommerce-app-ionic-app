@@ -2,7 +2,7 @@
     margin-top: 200px;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
 
 
 .card {
@@ -87,7 +87,11 @@ hr {
 }
 
 .buttons {
-    margin-top: 15px
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
 }
 
 .buttons .btn {
@@ -95,13 +99,13 @@ hr {
 }
 
 .buttons .cart {
-    border-color: #ff7676;
-    color: #ff7676
+    border-color: #a5ba8d;
+    color: #a5ba8d;
 }
 
 .buttons .cart:hover {
-    background-color: #e86464 !important;
-    color: #fff
+    background-color: #a5ba8d !important;
+    color: #fff;
 }
 
 .buttons .buy {
@@ -121,22 +125,30 @@ hr {
 .buttons .buy:hover {
     color: #fff;
     background-color: #e86464;
-    border-color: #e86464
-}
-
-.buttons .wishlist {
-    background-color: #fff;
-    border-color: #ff7676
-}
-
-.buttons .wishlist:hover {
-    background-color: #e86464;
     border-color: #e86464;
-    color: #fff
+}
+.buttons .wishlist{
+    background-color: #fff;
+    border-color: #a5ba8d;
+}
+.buttons .wishlist ion-icon  {
+    color: #e86464;
+}
+.buttons .wishlist:hover {
+    background-color: #ff7676;
+
 }
 
+.buttons .wishlist:hover ion-icon{
+    color: #fff;
+  
+}
+
+ion-icon:hover{
+    color: #ffff;
+}
 .buttons .wishlist:hover i {
-    color: #fff
+    color: #fff;
 }
 
 .buttons .wishlist i {
@@ -266,4 +278,12 @@ label.radio input:checked+span::before {
 }
 .left-over-images   .active{
     border: 2px solid rgb(131, 239, 131) !important;
+}
+
+.no-gutters{
+    margin-top: 100px !important;
+}
+.images-slider-section li img{
+    height: 350px;
+    width: 100%;
 }

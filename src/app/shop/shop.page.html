@@ -49,13 +49,13 @@
                     <ul class="product-links">
                        
                         <li (click)="addToCart(product)"><a><ion-icon name="cart"></ion-icon></a></li>
-                        <li><a routerLink="/single-product"><ion-icon name="eye"></ion-icon></a></li>
+                        <li><a routerLink="/single-product/product.id"><ion-icon name="eye"></ion-icon></a></li>
                         <li (click)="addToFav(product)"><a style="color: red;"><ion-icon name="heart"></ion-icon></a></li>
                     </ul>
                     <a routerLink="/cart" class="add-to-cart">Add to Cart</a>
                 </div>
                 <div class="product-content">
-                    <h3 class="title truncate " title="{{product.name}}" routerLink="/single-product/ali hassan routes works"><a routerLink="/single-product">{{product.name}}</a></h3>
+                    <h3 class="title truncate " title="{{product.name}}" (click)="updateProd(product)" routerLink="/single-product/{{product.id}}"><a>{{product.name}}</a></h3>
                     <div class="price">${{product.price}}</div>
                 </div>
             </div>

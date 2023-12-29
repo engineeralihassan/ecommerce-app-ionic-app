@@ -9,6 +9,7 @@ export class CartService {
   private cartItems: any[] = [];
   private cartLengthSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   totalBill:any=0;
+  productItem:any;
 
   getCartItems(): any[] {
     return this.cartItems;
@@ -65,6 +66,10 @@ export class CartService {
     this.updateCartLength();
   }
 
+
+  updateProduct(product:any){
+    this.productItem=product;
+  }
 
   // The favourite products data
   private favItems: any[] = [];
