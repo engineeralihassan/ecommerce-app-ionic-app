@@ -19,6 +19,11 @@ const routes: Routes = [
     path: 'shop',
     loadChildren: () => import('./shop/shop.module').then( m => m.ShopPageModule)
   },
+  {
+    path: 'single-product/:productName',
+    loadChildren: () =>
+      import('./single-product/single-product.module').then((m) => m.SingleProductPageModule ),
+  },
 {
   path: 'favorite-products',
     loadChildren: () => import('./favorite-products/favorite-products.module').then( m => m.FavoriteProductsPageModule)
@@ -34,6 +39,10 @@ const routes: Routes = [
   {
     path: 'favorite-products',
     loadChildren: () => import('./favorite-products/favorite-products.module').then( m => m.FavoriteProductsPageModule)
+  },
+  {
+    path: 'single-product',
+    loadChildren: () => import('./single-product/single-product.module').then( m => m.SingleProductPageModule)
   },
 ];
 

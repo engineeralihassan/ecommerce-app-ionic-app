@@ -17,7 +17,7 @@
                       <div class="row">{{item.name}}</div>
                   </div>
                   <div class="col">
-                    <a (click)="addToCart(item,true)" class="border abtn">-</a>  <a class="border">{{item.quantity}}</a> <a (click)="addToCart(item)" class="border abtn">+</a>
+                    <a (click)="addToCart(item,true)" class="abtn" style="margin-right: 5px;">-</a>  <a class="border">{{item.quantity}}</a> <a (click)="addToCart(item)" class=" abtn" style="margin-left: 5px;">+</a>
                   </div>
                   <div class="col">$ {{item.price}}<span class="close" (click)="removeFromCart(i)">&#10005;</span></div>
               </div>
