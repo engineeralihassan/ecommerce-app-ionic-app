@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../services/cart.service';
+import { SocialAuthService } from "@abacritt/angularx-social-login";
+import { SocialUser } from "@abacritt/angularx-social-login";
 
 
 @Component({
@@ -10,6 +12,7 @@ import { CartService } from '../services/cart.service';
 })
 export class SingleProductPage implements OnInit {
   activeImageIndex: number = 0;
+
   productImages:any[]=['https://i.imgur.com/KZpuufK.jpg','https://i.imgur.com/GwiUmQA.jpg','https://i.imgur.com/DhKkTrG.jpg','https://i.imgur.com/kYWqL7k.jpg','https://i.imgur.com/c9uUysL.jpg']
    productSingle:any;
 
@@ -21,6 +24,9 @@ export class SingleProductPage implements OnInit {
   constructor(private route: ActivatedRoute,private cart:CartService) {}
 
   ngOnInit() {
+  
+
+
     this.route.params.subscribe(params => {
       const productName = params['productName'];
       // Use the product name to fetch and display the product details
@@ -32,6 +38,8 @@ export class SingleProductPage implements OnInit {
     if(this.productSingle?.image){
       this.productImages[0]=this.productSingle.image;
     }
+
+
 
   }
   addToCart(product: any,remove=false): void {

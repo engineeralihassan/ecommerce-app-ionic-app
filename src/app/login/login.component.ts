@@ -1,6 +1,10 @@
 
 import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { SocialAuthService } from "@abacritt/angularx-social-login";
+import { SocialUser } from "@abacritt/angularx-social-login";
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,8 +16,19 @@ export class LoginComponent{
   password: string = '';
   isLogin:boolean=true;
   isSignUp:boolean=false;
+  user!: SocialUser;
+  loggedIn!: boolean;
 
-  constructor(private modalController: ModalController) {}
+  constructor(private authService: SocialAuthService,private modalController: ModalController,private router: Router) {}
+  ngOnInit(){
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+      if(this.user){
+        this.router.navigate(['/home']);
+      }
+    });
+  }
 
   closeModal() {
     this.modalController.dismiss();
