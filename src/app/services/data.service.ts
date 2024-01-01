@@ -9,6 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 export class DataService {
   private inputValueSubject = new BehaviorSubject<string>('');
   inputValue$ = this.inputValueSubject.asObservable();
+  
 
   setInputValue(value: string) {
     this.inputValueSubject.next(value);

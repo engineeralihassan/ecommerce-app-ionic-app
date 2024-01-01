@@ -49,7 +49,7 @@
                     <ul class="product-links">
                        
                         <li (click)="addToCart(product)"><a><ion-icon name="cart"></ion-icon></a></li>
-                        <li><a routerLink="/single-product/product.id"><ion-icon name="eye"></ion-icon></a></li>
+                        <li  (click)="updateProd(product)" routerLink="/single-product/{{product.id}}"><a routerLink="/single-product/product.id"><ion-icon name="eye"></ion-icon></a></li>
                         <li (click)="addToFav(product)"><a style="color: red;"><ion-icon name="heart"></ion-icon></a></li>
                     </ul>
                     <a routerLink="/cart" class="add-to-cart">Add to Cart</a>

@@ -34,5 +34,13 @@ export class SingleProductPage implements OnInit {
     }
 
   }
-
+  addToCart(product: any,remove=false): void {
+    this.cart.addToCart(product,remove);
+  }
+   addToFav(product:any){
+     console.log("Product is:",product);
+     if(product){
+      this.cart.addToFav(product);
+     }
+    }
 }

@@ -29,4 +29,8 @@ export class FavoriteProductsPage implements OnInit {
     this.favItems = this.cartService.getFavItems();
   }
 
+  updateProd(product:any){
+    this.cartService.updateProduct(product);
+  }
+
 }

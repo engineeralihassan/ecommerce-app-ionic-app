@@ -24,6 +24,9 @@ export class HomePage {
     this.search();
 
   }
+  updateProd(product:any){
+    this.cartService.updateProduct(product);
+  }
   async presentToast(message: string, duration: number = 300, position: 'top' | 'bottom' | 'middle' = 'bottom') {
     const toast = await this.toastController.create({
       message: message,
