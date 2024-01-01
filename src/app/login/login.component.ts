@@ -25,6 +25,7 @@ export class LoginComponent{
       this.user = user;
       this.loggedIn = (user != null);
       if(this.user){
+        this.modalController.dismiss();
         this.router.navigate(['/home']);
       }
     });
