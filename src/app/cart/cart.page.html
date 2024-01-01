@@ -19,7 +19,17 @@
                   <div class="col">
                     <a (click)="addToCart(item,true)" class="abtn" style="margin-right: 5px;">-</a>  <a class="border">{{item.quantity}}</a> <a (click)="addToCart(item)" class=" abtn" style="margin-left: 5px;">+</a>
                   </div>
+                  <div class="col">
+                    <button *ngIf="!item.description" (click)="toggleDescriptionInput(i)" class="desc-button">Add Description</button>
+                  </div>
+
                   <div class="col">$ {{item.price}}<span class="close" (click)="removeFromCart(i)">&#10005;</span></div>
+                  <!-- fff -->
+                  
+                  <input *ngIf="item.showDescriptionInput" class="mt-2" [(ngModel)]="item.description" placeholder="Enter description">
+                  <button class="desc-button desc-button-2" *ngIf="item.showDescriptionInput" (click)="submitDescription(i)">Submit</button>
+                  <div *ngIf="item.description" class="mt-2"> Description: {{ item.description }}</div>
+                  <!-- vv -->
               </div>
           </div>
           <div class="back-to-shop" routerLink="/shop"><a >&leftarrow;</a><span class="text-muted">Back to shop</span></div>

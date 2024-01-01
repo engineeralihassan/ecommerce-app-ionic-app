@@ -42,4 +42,16 @@ export class CartPage implements OnInit {
     this.updateTotalBill();
   }
 
+
+
+  toggleDescriptionInput(index: number): void {
+    this.cartItems[index].showDescriptionInput = !this.cartItems[index].showDescriptionInput;
+}
+
+submitDescription(index: number): void {
+    // You can save the description to your backend or handle it as needed
+    console.log(`Product ${this.cartItems[index].name} description: ${this.cartItems[index].description}`);
+    this.cartItems[index].showDescriptionInput = false;
+}
+
 }

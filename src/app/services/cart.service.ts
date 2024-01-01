@@ -48,7 +48,7 @@ export class CartService {
       this.cartItems[existingProductIndex].quantity += 1;
     } else {
       // Product doesn't exist in the cart, add it
-      const newProduct = { ...product, quantity: 1 };
+      const newProduct = { ...product, quantity: 1 ,showDescriptionInput: false, description: '' };
       this.cartItems.push(newProduct);
     }
 
