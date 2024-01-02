@@ -22,7 +22,7 @@
                   <div class="col">
                     <button *ngIf="!item.description" (click)="toggleDescriptionInput(i)" class="desc-button">Add Description</button>
                   </div>
-                  <div class="col">$ {{item.price}}</div>
+                 
 
                   <div class="col">$ {{(item.price*item.quantity).toFixed(2)}}<span class="close" (click)="removeFromCart(i)">&#10005;</span></div>
 
