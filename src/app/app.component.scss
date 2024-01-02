@@ -25,4 +25,13 @@ ion-title{
  font-size: 30px;
  font-weight: bold;
 }
-
+.logout-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 20px;
+        height: 20px;
+        
+    }
+}

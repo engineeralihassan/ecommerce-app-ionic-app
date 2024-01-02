@@ -7,6 +7,9 @@ import { ModalController } from '@ionic/angular';
 import { LoginComponent } from './login/login.component';
 import { DataService } from './services/data.service';
 import { Router, NavigationEnd } from '@angular/router';
+import { LoginService } from './services/login.service';
+import { SocialAuthService } from "@abacritt/angularx-social-login";
+import { SocialUser } from "@abacritt/angularx-social-login";
 DataService
 
 
@@ -17,18 +20,31 @@ register();
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  isAuthenticated: boolean = false;
+  user: any = null;
   isShopPage: boolean = false;
   cartLength: number = 0;
   private cartLengthSubscription!: Subscription;
   private favLengthSubscription!: Subscription;
   favLength:number=0;
-
-
   onInputValueChanged(value: any) {
     this.datService.setInputValue(value.target.value);
   }
-
   ngOnInit(): void {
+      this.authService1.authState.subscribe((user) => {
+        this.user = user;
+        if(this.user){
+         this.authService.login(user);
+        }
+      });
+    this.authService.isAuthenticated$.subscribe((isAuthenticated:any) => {
+      this.isAuthenticated = isAuthenticated;
+    });
+
+    this.authService.user$.subscribe((user:any) => {
+      console.log("The user is :::",user);
+      this.user = user;
+    });
     this.updateCartLength();
     this.updateFavtLength();
     this.cartLengthSubscription = this.cartService.getCartLengthObservable().subscribe({
@@ -56,7 +72,7 @@ export class AppComponent {
 
   navigate: any;  
   constructor(  
-    private platform: Platform ,private cartService: CartService ,private router: Router , private datService:DataService,private modalController: ModalController
+    private platform: Platform ,private cartService: CartService ,private router: Router , private datService:DataService,private modalController: ModalController,private authService: LoginService, private authService1: SocialAuthService,
   ) {  
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -106,5 +122,9 @@ export class AppComponent {
       component: LoginComponent ,
     });
     return await modal.present();
+  }
+  logout() {
+    console.log(this.authService.user$);
+    this.authService.logout();
   }
 }

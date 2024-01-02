@@ -4,6 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { SocialAuthService } from "@abacritt/angularx-social-login";
 import { SocialUser } from "@abacritt/angularx-social-login";
 import { Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -19,14 +20,16 @@ export class LoginComponent{
   user!: SocialUser;
   loggedIn!: boolean;
 
-  constructor(private authService: SocialAuthService,private modalController: ModalController,private router: Router) {}
+  constructor(private loginservice:LoginService,  private authService: SocialAuthService,private modalController: ModalController,private router: Router) {}
   ngOnInit(){
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
       if(this.user){
+       this.loginservice.login(user);
+       console.log("The login was triggred")
         this.modalController.dismiss();
-        this.router.navigate(['/home']);
+        this.router.navigate(['/shop']);
       }
     });
   }

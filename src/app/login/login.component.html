@@ -26,21 +26,15 @@ data-login_uri="http://localhost:8100"
 data-auto_prompt="false">
 </div>
 
-<!-- <div class="g_id_signin"
+<div class="g_id_signin"
 data-type="standard"
 data-shape="rectangular"
 data-theme="filled_blue"
 data-text="signin_with"
 data-size="large"
 data-logo_alignment="left">
-</div> -->
-<div class="resul-user" *ngIf="loggedIn">
-  <img src="{{ user.photoUrl }}" referrerpolicy="no-referrer">
-<div>
-  <h4>{{ user.name }}</h4>
-  <p>{{ user.email }}</p>
 </div>
-</div>
+
 </div>
         <p class="message">Not registered? <a (click)="toggleForm()">Create an account</a></p>
       </form>
